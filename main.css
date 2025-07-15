@@ -1,138 +1,154 @@
 :root {
-  --primary-color: #7f5af0;         /* Фиолетовый 600 — насыщенный, но не кислотный */
-  --secondary-color: #6244e0;       /* Светлый фиолетово-сиреневый */
-  --error-color: #EF4444;           /* Мягкий красный */
-  --bg-color: #F9FAFC;              /* Светлый нейтральный фон */
-  --font-color: #2E2E35;            /* Глубокий графитово-серый для читаемости */
+  --primary-color: #7f5af0; /* Фиолетовый 600 — насыщенный, но не кислотный */
+  --secondary-color: #6244e0; /* Светлый фиолетово-сиреневый */
+  --error-color: #ef4444; /* Мягкий красный */
+  --bg-color: #f9fafc; /* Светлый нейтральный фон */
+  --font-color: #2e2e35; /* Глубокий графитово-серый для читаемости */
   --hover-bg: rgba(108, 43, 217, 0.08); /* Прозрачный оттенок фиолетового */
   --transition-speed: 0.3s;
-  --toast-bg: #6C2BD9;              /* Совпадает с основным акцентом */
-  --toast-text: #FFFFFF;
-  --toast-border: #E4DFFF;          /* Светлая фиолетовая окантовка */
+  --toast-bg: #6c2bd9; /* Совпадает с основным акцентом */
+  --toast-text: #ffffff;
+  --toast-border: #e4dfff; /* Светлая фиолетовая окантовка */
 }
-  /* Глобальный сброс стилей */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Меню */
-  .up-nav nav {
-    /* Используем радиальный градиент вместо линейного */
-    background: radial-gradient(circle at center, var(--secondary-color) 0%, var(--primary-color) 100%);
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    padding: 0 20px;
-  }
-  
-  .up-nav nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-  }
-  
-  .up-nav nav ul li {
-    position: relative;
-  }
-  
-  .up-nav nav ul li a {
-    display: block;
-    padding: 14px 20px;
-    color: #fff;
-    text-decoration: none;
-    transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
-    position: relative;
-  }
-  
-  /* Подчёркивание при наведении */
-  nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: width var(--transition-speed) ease;
-  }
-  
-  .up-nav nav ul li a:hover::after {
-    width: 80%;
-  }
-  
-  /* Эффект подъёма и изменение фона */
-  nav ul li a:hover {
-    background: var(--hover-bg);
-    border-radius: 4px;
-    transform: translateY(-2px);
-  }
-  
-  /* Стилизация фокуса для доступности */
-  nav ul li a:focus {
-    outline: 2px dashed #fff;
-    outline-offset: 4px;
-  }
-  
-  /* Активное состояние для текущего пункта меню */
-  .up-nav nav ul li a.active {
-    font-weight: bold;
-    border-bottom: 2px solid #fff;
-  }
-  
-  /* Выпадающее подменю */
-  .up-nav nav ul li ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--secondary-color);
-    flex-direction: column;
-    min-width: 180px;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    margin-top: 1px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-    z-index: 998;
-  }
-  
-  .up-nav nav ul li:hover > ul {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  nav ul li ul li a {
-    padding: 12px 20px;
-    font-size: 14px;
-    text-align: center;
-    transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
-  }
-  
-  nav ul li ul li a:hover {
-    background: var(--hover-bg);
-    transform: translateX(5px);
-  }
-  
-  /* Выравнивание user-info вправо */
-  .up-nav nav ul .user-info {
-    margin-left: auto;
-    font-weight: bold;
-  }
-  
+/* Глобальный сброс стилей */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Меню */
+.up-nav nav {
+  /* Используем радиальный градиент вместо линейного */
+  background: radial-gradient(
+    circle at center,
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
+  );
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  padding: 0 20px;
+    backdrop-filter: blur(8px);
+
+}
 
 
-  /* Гамбургер-меню */
+
+
+.up-nav nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.up-nav nav ul li {
+  position: relative;
+}
+
+.up-nav nav ul li a {
+  display: block;
+  padding: 14px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+  position: relative;
+}
+
+/* Подчёркивание при наведении */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width var(--transition-speed) ease;
+}
+
+.up-nav nav ul li a:hover::after {
+  width: 80%;
+}
+
+/* Эффект подъёма и изменение фона */
+nav ul li a:hover {
+  background: var(--hover-bg);
+  border-radius: 4px;
+  transform: translateY(-2px);
+}
+
+/* Стилизация фокуса для доступности */
+nav ul li a:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 4px;
+}
+
+/* Активное состояние для текущего пункта меню */
+.up-nav nav ul li a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+/* Выпадающее подменю */
+.up-nav nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--secondary-color);
+  flex-direction: column;
+  min-width: 180px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 1px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+  z-index: 998;
+}
+
+.up-nav nav ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+nav ul li ul li a {
+  padding: 12px 20px;
+  font-size: 14px;
+  text-align: center;
+  transition: background var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+nav ul li ul li a:hover {
+  background: var(--hover-bg);
+  transform: translateX(5px);
+}
+
+/* Выравнивание user-info вправо */
+.up-nav nav ul .user-info {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/* Гамбургер-меню */
 .up-nav .menu-toggle {
   display: none;
   flex-direction: column;
@@ -145,6 +161,7 @@
 }
 
 .up-nav .menu-toggle div {
+  transition: transform 0.3s ease, opacity 0.3s ease;
   width: 100%;
   height: 4px;
   background-color: white;
@@ -199,7 +216,6 @@
     display: flex;
   }
 }
-  
 
 /* Кнопка "Выход" */
 nav ul .user-info ul li a {
@@ -209,7 +225,8 @@ nav ul .user-info ul li a {
 
   text-decoration: none;
   border-radius: 4px;
-  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+  transition: background var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
   text-align: center;
 }
 
@@ -231,53 +248,42 @@ nav ul .user-info ul li a:active {
   transform: scale(0.98);
 }
 
+.up-nav .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  border: 2px solid var(--toast-border);
+  box-shadow: 0 0 0 4px rgba(127, 90, 240, 0.2);
+  transition: transform var(--transition-speed);
+}
 
+.up-nav .user-info a {
+  display: flex;
+  align-items: center;
+}
 
+.user-info a:hover .avatar {
+  transform: scale(1.1);
+}
 
+.up-nav .logo {
+  width: 120px;
+  height: 40px;
+  background-image: url("/static/img/photos/logo_color.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  margin: 20px 40px;
+  z-index: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-  .up-nav .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 8px;
-    border: 2px solid var(--toast-border);
-    transition: transform var(--transition-speed);
-  }
-  
-  .up-nav .user-info a {
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-info a:hover .avatar {
-    transform: scale(1.1);
-  }
-
-
-
-
-  .up-nav .logo {
-    width: 120px;
-    height: 40px;
-    background-image: url("/static/img/photos/logo_color.svg");
-    background-repeat: no-repeat;
-    background-size: contain; 
-    position: absolute;
-    margin: 20px 40px;
-    z-index: 0; 
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .logo:hover {
-    transform: scale(1.1); /* Увеличиваем логотип на 10% при наведении */
-    opacity: 0.8; /* Делает логотип немного прозрачным */
-  }
-  
-
-
-  
-
+.logo:hover {
+  transform: scale(1.1); /* Увеличиваем логотип на 10% при наведении */
+  opacity: 0.8; /* Делает логотип немного прозрачным */
+}
 
 .toast {
   position: fixed;
@@ -312,54 +318,52 @@ nav ul .user-info ul li a:active {
   visibility: visible;
 }
 
+/* Заголовки */
+h1,
+h2 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
 
-  /* Заголовки */
-  h1, h2 {
-    text-align: center;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
+h1 {
+  font-size: 36px;
+}
 
-  h1 {
-    font-size: 36px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-
-
+h2 {
+  font-size: 24px;
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, var(--bg-color), var(--secondary-color));
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+    to right,
+    var(--bg-color),
+    var(--secondary-color)
+  );
   color: var(--font-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
+/* Контейнер */
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
 
-    /* Контейнер */
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .container:hover {
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-
+.container:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
 
 /* Обновление стилей для таблицы */
 table {
@@ -378,7 +382,8 @@ table:hover {
 }
 
 /* Стиль для заголовков и ячеек */
-th, td {
+th,
+td {
   padding: 18px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -434,28 +439,29 @@ tbody tr:nth-child(even) {
 /* Адаптивность для таблицы */
 @media (max-width: 768px) {
   table {
-      font-size: 13px;
+    font-size: 13px;
   }
-  th, td {
-      padding: 12px;
+  th,
+  td {
+    padding: 12px;
   }
   .table-title {
-      font-size: 22px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 480px) {
   table {
-      font-size: 11px;
+    font-size: 11px;
   }
-  th, td {
-      padding: 8px;
+  th,
+  td {
+    padding: 8px;
   }
   .table-title {
-      font-size: 20px;
+    font-size: 20px;
   }
 }
-
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -471,19 +477,26 @@ tbody tr:nth-child(even) {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--secondary-color), var(--primary-color));
+  background: linear-gradient(
+    180deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
   border-radius: 10px;
   border: 2px solid var(--bg-color);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.15);
-  transition: background var(--transition-speed), box-shadow var(--transition-speed);
+  transition: background var(--transition-speed),
+    box-shadow var(--transition-speed);
   cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
-  box-shadow:
-    0 0 16px var(--primary-color),
-    inset 0 0 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    180deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  box-shadow: 0 0 16px var(--primary-color), inset 0 0 8px rgba(0, 0, 0, 0.3);
   transform: scaleX(1.05);
 }
 
@@ -492,14 +505,12 @@ tbody tr:nth-child(even) {
 }
 
 @keyframes glowPulse {
-  0%, 100% {
-    box-shadow:
-      0 0 10px var(--primary-color),
-      inset 0 0 6px rgba(0, 0, 0, 0.25);
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--primary-color), inset 0 0 6px rgba(0, 0, 0, 0.25);
   }
   50% {
-    box-shadow:
-      0 0 20px var(--secondary-color),
+    box-shadow: 0 0 20px var(--secondary-color),
       inset 0 0 8px rgba(0, 0, 0, 0.4);
   }
 }
@@ -519,72 +530,70 @@ tbody tr:nth-child(even) {
   color: inherit;
 }
 
+.custom-toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
+.custom-toast {
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  border: 2px solid var(--toast-border);
+  border-left: 6px solid var(--secondary-color);
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+  font-weight: 500;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+}
 
-  .custom-toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1080;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+.custom-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .custom-toast {
-    background: var(--toast-bg);
-    color: var(--toast-text);
-    border: 2px solid var(--toast-border);
-    border-left: 6px solid var(--secondary-color);
-    padding: 14px 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    min-width: 280px;
-    max-width: 360px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.5s ease;
-    font-weight: 500;
-    gap: 12px;
-    backdrop-filter: blur(10px);
-  }
+.toast-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
 
-  .custom-toast.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.toast-message {
+  flex-grow: 1;
+}
 
-  .toast-icon {
-    font-size: 1.3rem;
-    flex-shrink: 0;
-  }
+.toast-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
 
-  .toast-message {
-    flex-grow: 1;
-  }
+.toast-success {
+  border-left-color: #22c55e;
+}
 
-  .toast-close {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1;
-    padding: 0;
-  }
+.toast-error {
+  border-left-color: #ef4444;
+}
 
-  .toast-success {
-    border-left-color: #22c55e;
-  }
-
-  .toast-error {
-    border-left-color: #ef4444;
-  }
-
-  .toast-info {
-    border-left-color: #38bdf8;
-  }
+.toast-info {
+  border-left-color: #38bdf8;
+}
