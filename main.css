@@ -271,7 +271,7 @@ nav ul .user-info ul li a:active {
 .up-nav .logo {
   width: 120px;
   height: 40px;
-  background-image: url("/static/img/photos/logo_color.svg");
+  background-image: url("https://cdn.jsdelivr.net/gh/DostaAnalytic/DostaWorkOpen/static/img/photos/logo_color.svg");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
