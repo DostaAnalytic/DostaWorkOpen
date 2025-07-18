@@ -532,6 +532,7 @@ tbody tr:nth-child(even) {
 
 
 
+
 .custom-toast-container {
   position: fixed;
   top: 28px;
@@ -551,10 +552,10 @@ tbody tr:nth-child(even) {
 
 .custom-toast {
   pointer-events: auto;
-  background: rgba(255,255,255,0.95);
+  background: #fcfcff;
   color: #212134;
   border-radius: 16px;
-  box-shadow: 0 6px 28px 0 rgba(127,90,240,0.09), 0 1.5px 7px rgba(127,90,240,0.05);
+  box-shadow: 0 14px 34px 0 rgba(127,90,240,0.16), 0 3px 14px rgba(127,90,240,0.08);
   min-width: 270px;
   max-width: 420px;
   min-height: 48px;
@@ -570,8 +571,8 @@ tbody tr:nth-child(even) {
   overflow: hidden;
   border: none;
   will-change: transform, opacity;
-  background: #f4f5ff;
-  filter: brightness(1.015);
+    -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 
 }
 
@@ -582,8 +583,8 @@ tbody tr:nth-child(even) {
 }
 
 @keyframes toastIn {
-  0% { opacity: 0; transform: translateY(38px) scale(0.94);}
-  60% { opacity: 1; transform: translateY(-6px) scale(1.025);}
+  0% { opacity: 0; transform: translateY(-16px) scale(0.98);}
+  60% { opacity: 1; transform: translateY(8px) scale(1.03);}
   100% { opacity: 1; transform: translateY(0) scale(1);}
 }
 
@@ -615,12 +616,15 @@ tbody tr:nth-child(even) {
   line-height: 1.42;
   word-break: break-word;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 300px;
   text-align: left;
+    max-height: 15em;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .toast-close {
@@ -679,14 +683,7 @@ tbody tr:nth-child(even) {
   100% { width: 180px; height: 180px; opacity: 0; }
 }
 
-.custom-toast:hover {
-  box-shadow: 0 14px 34px 0 rgba(127,90,240,0.16), 0 3px 14px rgba(127,90,240,0.08);
-  background: #f4f5ff;
-  filter: brightness(1.015);
-}
-.custom-toast[style*="pointer"]:hover {
 
-}
 
 
 /* Медиазапросы для мобильных */
