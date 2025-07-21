@@ -598,6 +598,9 @@ tbody tr:nth-child(even) {
 .toast-success .toast-accent { background: linear-gradient(180deg, #b9f8c6 0%, #22c55e 100%);}
 .toast-error .toast-accent { background: linear-gradient(180deg, #fecaca 0%, #ef4444 100%);}
 .toast-info .toast-accent { background: linear-gradient(180deg, #d1caff 0%, #7f5af0 100%);}
+.toast-warning .toast-accent { background: linear-gradient(180deg, #d1caff 0%, #facc15 100%);}
+
+
 
 .toast-svg {
   min-width: 30px;
@@ -659,6 +662,7 @@ tbody tr:nth-child(even) {
 .toast-success .toast-progress { background: linear-gradient(90deg,#b9f8c6,#22c55e);}
 .toast-error .toast-progress { background: linear-gradient(90deg,#fecaca,#ef4444);}
 .toast-info .toast-progress { background: linear-gradient(90deg,#d1caff,#7f5af0);}
+.toast-warning .toast-progress { background: linear-gradient(90deg,#d1caff,#facc15);}
 
 @keyframes toast-progress-top {
   from { width: 100%; }
@@ -794,6 +798,12 @@ tbody tr:nth-child(even) {
 .notification-item.error {
   border-left-color: #f44336;
 }
+
+.notification-item.warning {
+  border-left-color: #facc15;
+}
+
+
 
 .notif-date {
   font-size: 12px;
