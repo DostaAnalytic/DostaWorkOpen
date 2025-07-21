@@ -884,3 +884,51 @@ button[type="submit"]:hover::after {
     transform: translateX(100%) rotate(25deg);
   }
 }
+
+
+
+
+
+
+
+
+
+.pagination-button:hover::after {
+content:"";
+position:absolute;
+top:-20%;
+left:-50%;
+width:200%;
+height:150%;
+background:linear-gradient(120deg,transparent,#fff9,transparent);
+transform:rotate(25deg);
+animation:shine 1s ease forwards;
+pointer-events:none;
+border-radius:inherit
+}
+
+
+.pagination-button {
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:var(--primary-color);
+color:#fff;
+padding:12px 22px;
+border-radius:32px;
+text-decoration:none;
+font-weight:600;
+font-size:.95rem;
+box-shadow:0 6px 18px #7b4ae14d;
+transition:background .3s ease,box-shadow .3s ease;
+justify-content:center;
+overflow:hidden;
+position:relative;
+border:none;
+cursor:pointer
+}
+
+.pagination-button:hover {
+background:var(--secondary-color);
+box-shadow:0 6px 18px #5700fa66
+}
