@@ -931,3 +931,52 @@ cursor:pointer
 background:var(--secondary-color);
 box-shadow:0 6px 18px #5700fa66
 }
+
+
+
+/* Шапка как контейнер для анимации */
+.up-nav nav {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  padding: 0 20px;
+  backdrop-filter: blur(8px);
+  overflow: hidden;           /* важно для псевдо-элемента */
+  position: sticky;           /* уже было, просто оставляем */
+}
+
+/* Мягкий перелив поверх основного градиента */
+.up-nav nav::before {
+  content: "";
+  position: absolute;
+  inset: -20%;                /* чуть шире, чтобы не видно было краёв при смещении */
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,.10), transparent 55%),
+              linear-gradient(120deg, 
+                color-mix(in oklab, var(--secondary-color) 88%, #fff 12%) 0%,
+                color-mix(in oklab, var(--primary-color)   88%, #fff 12%) 50%,
+                color-mix(in oklab, var(--secondary-color) 88%, #fff 12%) 100%);
+  background-size: 200% 200%;
+  mix-blend-mode: screen;     /* мягкий перелив без «закрашивания» текста */
+  opacity: .18;               /* деликатно! */
+  animation: upmenuGradientDrift 18s ease-in-out infinite;
+  will-change: background-position, transform;
+}
+
+/* Поднимаем содержимое меню над переливом */
+.up-nav nav > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes upmenuGradientDrift {
+  0%   { background-position: 0% 50%;   transform: translateZ(0) }
+  50%  { background-position: 100% 50%; transform: translateZ(0) }
+  100% { background-position: 0% 50%;   transform: translateZ(0) }
+}
+
+/* Уважение системных настроек: без движения при reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .up-nav nav::before { animation: none; }
+}
